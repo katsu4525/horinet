@@ -137,7 +137,7 @@ $str = make_token();
 					</dd>
 				</dl>
 				<p id="image-btn">
-					<input type="submit" value="入力内容を確認する" />
+					<input type="submit" value="内容を確認する" />
 				</p>
 			</form>
 		</section>
