@@ -1,5 +1,5 @@
 // Breakpoints.
-$breakpoint-tby: 1100px;
+$breakpoint-tby: 1200px;
 $breakpoint-tbt: 768px;
 $breakpoint-sp: 480px;
 
@@ -21,7 +21,22 @@ $breakpoint-sp: 480px;
 
 .inner{
   width: 90%;
-  max-width: 1024px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.inner1{
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.inner2{
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.inner3{
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .title-area,.title-area-news{
@@ -34,10 +49,11 @@ $breakpoint-sp: 480px;
   text-align: center;
   font-weight: 700;
   @include tbt {
-    padding: 50px 0;
+    background-image: url("../images/page-title-sp.webp");
+    padding: 25px 0;
   }
   @include sp {
-    padding: 40px 0;
+    padding: 15px 0;
   }
   h2{
     font-size: 3.0rem;
@@ -45,6 +61,12 @@ $breakpoint-sp: 480px;
     margin: 0;
     padding: 0;
     background-image: none;
+    @include tbt {
+      font-size: 2.6rem;
+    }
+    @include sp {
+      font-size: 2.4rem;
+    }
   }
 }
 .title-area-news{
@@ -52,13 +74,16 @@ $breakpoint-sp: 480px;
 }
 .title-area-sub{
   margin: 1em auto;
+  @include tby {
+    text-align: center;
+  }
   h2{
     font-size: 3.0rem;
     line-height: 1.5em;
   }
 }
 .pan{
-  width: 1024px;
+  width: 1200px;
   margin: 0 auto 40px;
   display: flex;
   align-items: center;
@@ -86,8 +111,9 @@ h2,h3{
 h3{
   font-weight: normal;
   font-size: 2.0rem;
-  margin-bottom: 1.0em;
+  margin-bottom: 0.5em;
   color: #008db7;
+  font-weight: 700;
   &.des{
     font-size: 2.4rem;
     margin-top: 50px;
@@ -139,15 +165,16 @@ h3{
       transform: translate(-50%, -50%);
       text-align: center;
       color: #fff;
-      font-weight: 700;
-      font-size: 4.6rem;
+      font-weight: 900;
+      font-size: 6.0rem;
       line-height: 1.4em;
       text-shadow: 0 2px 6px #002B31;
       @include tbt {
-        font-size: 3.0rem;
+        font-size: 5.0rem;
+        width: 100%;
       }
       @include sp {
-        font-size: 2.3rem;
+        font-size: 4.0rem;
       }
     }
   }
@@ -157,11 +184,14 @@ h3{
   margin: 0 auto 0;
   bottom: 0;
   background-image: url("../images/page-title.webp");
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   text-align: center;
   padding: 20px 0 20px;
+  @include tbt {
+    background-image: url("../images/page-title-sp.webp");
+  }
   h2{
     font-size: 2.6rem;
     @include tbt {
@@ -235,11 +265,21 @@ h3{
     .text{
       font-size: 1.6rem;
       a{
+        display: flex;
+        flex-wrap: wrap;
         &:hover{
           color: #008db7;
           border-bottom: 1px solid #008db7;
         }
       }
+      @include tbt {
+        width: 100%;
+        display: block;
+      }
+    }
+    img{
+      width: 15px;
+      margin-left: 5px;
     }
   }
   .news-btn {
@@ -248,17 +288,18 @@ h3{
     a {
       display: inline-flex;
       align-items: center;
-      color: #008db7;            /* 緑色 */
+      color: #111;            /* 緑色 */
       text-decoration: none;
-      font-weight: bold;
       position: relative;
       padding-right: 1.2em;      /* 矢印分の余白 */
       transition: all 0.3s ease;
       &::after {
         content: "→";               /* 右側に矢印 */
         margin-left: 0.4em;
-        font-size: 1em;
+        font-size: 1.2em;
         transition: transform 0.3s ease;
+        color: #008db7;
+        font-weight: 700;
       }
       &:hover::after {
         transform: translateX(4px); /* ホバー時に矢印を右に動かす */
@@ -299,11 +340,13 @@ h3{
     flex-wrap: wrap;
     justify-content: space-between;
     .index-menu-box-info{
+      font-size: 2.0rem;
       width: 30%;
       text-align: center;
       @include sp {
         width: 100%;
         margin-bottom: 30px;
+        font-size: 1.6rem;
       }
       figure{
         margin-bottom: -20px;
@@ -314,7 +357,7 @@ h3{
 #registration{
   margin: 100px auto 100px;
   width: 90%;
-  max-width: 1024px;
+  max-width: 1200px;
   text-align: center;
   @include tbt {
     margin: 80px auto 80px;
@@ -390,6 +433,11 @@ h3{
   @include sp {
     padding: 60px 0;
   }
+  h3{
+    color: #008DB7;
+    border-bottom: 1px solid #008DB7;
+    margin-bottom: 1em;
+  }
   .text-r{
     text-align: right;
     margin-top: 1em;
@@ -397,9 +445,29 @@ h3{
 }
 /*事業内容*/
 #service{
+  h3{
+    color: #008db7;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    &::before {
+      content: "▷";        /* 三角矢印 */
+      margin-right: 0.5em; /* テキストとの余白 */
+      font-size: 0.9em;     /* 矢印のサイズ調整 */
+      color: #008db7;       /* テキストと同じ色 */
+    }
+    @include sp {
+      font-size: 2.0rem;
+    }
+  }
   .service-box1{
     margin-bottom: 50px;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row-reverse;
     @include tbt {
       margin-bottom: 40px;
     }
@@ -407,26 +475,10 @@ h3{
       margin-bottom: 30px;
     }
     .box1-left{
-      width: 60%;
+      width: 45%;
       z-index: 1;
       @include tbt {
         width: 100%;
-      }
-      h3{
-        color: #008db7;
-        font-size: 2.2rem;
-        display: flex;
-        align-items: center;
-        margin-bottom: 1em;
-        &::before {
-          content: "▷";        /* 三角矢印 */
-          margin-right: 0.5em; /* テキストとの余白 */
-          font-size: 0.9em;     /* 矢印のサイズ調整 */
-          color: #008db7;       /* テキストと同じ色 */
-        }
-        @include sp {
-          font-size: 2.0rem;
-        }
       }
       .subTitle{
         font-weight: 700;
@@ -438,19 +490,19 @@ h3{
       }
     }
     figure{
-      width: 35%;
-      padding-top: 50px;
+      width: 50%;
       @include tbt {
-        width: 100%;
+        width: 90%;
         padding-top: 40px;
+        margin-bottom: 20px;
       }
       @include sp {
         padding-top: 30px;
       }
       img{
-        filter: drop-shadow(-80px -50px 0px #e5f3f8);
+        filter: drop-shadow(-100px -50px 0px #e5f3f8);
         @include tbt {
-          filter: drop-shadow(-3vw -3vw 0px #e5f3f8);
+          filter: drop-shadow(-5% -5% 0px #e5f3f8);
         }
       }
     }
@@ -471,6 +523,7 @@ h3{
       margin-bottom: 2%;
       @include tbt {
         width: 100%;
+        text-align: left;
       }
       a {
         width: 100%;
@@ -497,6 +550,9 @@ h3{
           border-left: 6px solid transparent;
           border-right: 6px solid transparent;
           border-top: 8px solid #008db7; /* ← 矢印の色（白） */
+        }
+        @include tbt {
+          justify-content: flex-start;
         }
       }
     }
@@ -526,7 +582,7 @@ h3{
           overflow: hidden;
           margin-bottom: 20px;
           @include tbt {
-            width: 100%;
+            width: 80%;
             padding-bottom: 15vw;
           }
           counter-increment: box2-counter; /* カウンターをインクリメント */
@@ -762,6 +818,9 @@ h3{
     p{
       border-bottom: 1px dotted #999;
       padding: 10px 0;
+      @include tbt {
+        padding: 10px 5%;
+      }
     }
   }
 }
@@ -794,7 +853,12 @@ h3{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-
+    @include tbt {
+      gap:10px;
+    }
+    @include sp {
+      gap:5px;
+    }
     .box {
       flex: 1 1 calc(25% - 20px);
       box-sizing: border-box;
@@ -804,10 +868,10 @@ h3{
       flex-direction: column;
 
       @include tbt {
-        flex: 1 1 calc(50% - 20px);
+        flex: 1 1 calc(50% - 15px);
       }
       @include sp {
-        flex: 1 1 calc(100% - 20px);
+        flex: 1 1 calc(50% - 10px);
       }
 
       .icon {
@@ -840,18 +904,20 @@ h3{
     align-items: flex-start;
     h4{
       font-size: 2.0rem;
-      width: 150px;
+      width: 280px;
       padding: 5px 10px;
       text-align: center;
       background-color: #008db7;
       color: #FFF;
       box-sizing: border-box;
+      margin-bottom: 15px;
       @include tbt {
+        margin-left: -6%;
         font-size: 1.8rem;
       }
       @include sp {
         font-size: 1.6rem;
-        width: 180px;
+        width: 260px;
         margin-bottom: 10px;
       }
     }
@@ -908,7 +974,7 @@ h3{
   justify-content: space-between;
   align-items: center;
   .text-area{
-    width: calc(100% - 450px);
+    width: 40%;
     font-size: 2.0rem;
     @include tbt {
       width: 100%;
@@ -918,8 +984,9 @@ h3{
     }
   }
   figure{
-    width: 370px;
+    width: 55%;
     @include tbt {
+      width: 100%;
       margin: 2em auto 0;
     }
     @include sp {
@@ -951,8 +1018,6 @@ h3{
     border-top: 1px solid #008db7;
     border-bottom: 1px solid #008db7;
     @include tbt {
-      border-top: none;
-      border-bottom: none;
       margin-bottom: 60px;
     }
     @include sp {
@@ -960,7 +1025,7 @@ h3{
     }
     dt{
       width: 12em;
-      padding: 2em 0;
+      padding: 1em 0;
       border-top:1px dotted #CCC;
       background-color: #e5f3f8;
       text-align: center;
@@ -968,31 +1033,34 @@ h3{
         border-top: none;
       }
       @include tbt {
-        width: 100%;
-        padding: 0.5em 0 ;
-        position: relative;
-        border-top:none;
+        width: 10em;
+      }
+      @include sp {
+        width: 8em;
       }
     }
     dd{
       width: calc(100% - 12em);
-      padding: 2em 0 2em 1em;
+      padding: 1em 0 1em 1em;
       border-top: 1px dotted #CCC;
       box-sizing: border-box;
       &:nth-child(2){
         border-top: none;
       }
       @include tbt {
-        padding: 0.3em 0 1.5em;
-        width: 100%;
-        border-top: none;
+        width: calc(100% - 10em);
+      }
+      @include sp {
+        width: calc(100% - 8em);
       }
     }
   }
   #access{
+    h3{
+      border-bottom: 1px solid #008db7;
+    }
     .map{
       width: 100%;
-      border: 1px solid #CCC;
       box-sizing: border-box;
       position: relative;
       z-index: 0;
@@ -1031,19 +1099,11 @@ h3{
 #privacy{
   h3{
     font-size: 2.0rem;
-    border-bottom: 1px solid #DDD;
-    color: #008db7;
+    color: #111;
     margin-bottom: 15px;
     margin-top: 2em;
     position: relative;
-    &::before{
-      content: '';
-      position: absolute;
-      bottom: -1px;
-      width: 20%;
-      height: 1px;
-      background: #008db7;
-    }
+    text-decoration: underline;
   }
   ul{
     margin: 1em 0 0;
@@ -1124,5 +1184,11 @@ h3{
     @include sp {
       margin: 40px auto 0;
     }
+  }
+}
+.space{
+  @include tbt {
+    padding-left: 5%;
+    padding-right: 5%;
   }
 }
